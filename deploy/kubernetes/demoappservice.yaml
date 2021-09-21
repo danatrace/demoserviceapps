@@ -1,0 +1,75 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoappservice
+  labels:
+    name: news
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: news
+  template:
+    metadata:
+      labels:
+        name: news
+    spec:
+      containers:
+      - name: darth-vader
+        image: danatrace/news-app:2 
+        env:
+        - name: APIKEY
+          value: ""
+        ports:
+        - name: news
+          containerPort: 5000
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+      - name: obi-wan
+        image: danatrace/fbi:1
+        env:
+        - name: APIKEY
+          value: ""
+        ports:
+        - name: function
+          containerPort: 5001
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+      - name: jarjar-binx
+        image: danatrace/frauddet:1
+        env:
+        - name: APIKEY
+          value: ""
+        ports:
+        - name: frauddet
+          containerPort: 5002
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+      - name: luke-skywalker
+        image: danatrace/function:60  
+        ports:
+        - name: function
+          containerPort: 5005
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
