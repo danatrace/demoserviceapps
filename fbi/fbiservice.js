@@ -36,9 +36,7 @@ var options = {
 method: 'GET',
 url: 'https://api.fbi.gov/wanted/v1/list',
 headers: {
-    'x-user-agent': 'desktop',
-    'x-rapidapi-host': 'google-search3.p.rapidapi.com',
-    'x-rapidapi-key': '${apikey}'
+ 
 }
 };
 
