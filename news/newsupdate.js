@@ -40,7 +40,7 @@ url: 'https://google-search3.p.rapidapi.com/api/v1/search/q=iphone&num=100',
 headers: {
     'x-user-agent': 'desktop',
     'x-rapidapi-host': 'google-search3.p.rapidapi.com',
-    'x-rapidapi-key': '${apikey}'
+    'x-rapidapi-key': apikey
 }
 };
 

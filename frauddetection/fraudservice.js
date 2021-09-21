@@ -38,7 +38,7 @@ var options = {
     params: {ip: '127.0.0.1'},
     headers: {
       'x-rapidapi-host': 'fraudsentinel.p.rapidapi.com',
-      'x-rapidapi-key': '${apikey}'
+      'x-rapidapi-key': apikey
     }
   };
 
