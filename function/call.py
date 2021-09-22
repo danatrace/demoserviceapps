@@ -26,9 +26,9 @@ def do_something(sc):
         f.write(response.text)
 
 
-    s.enter(10, 1, do_something, (sc,))
+    s.enter(60, 1, do_something, (sc,))
 
     
 
-s.enter(10, 1, do_something, (s,))
+s.enter(60, 1, do_something, (s,))
 s.run()
