@@ -6,7 +6,7 @@ metadata:
   labels:
     name: news
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       name: news
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: darth-vader
-        image: {{ .Values.image.repositor.news }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         env:
         - name: APIKEY
           value: ""
@@ -33,45 +33,4 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
-      - name: obi-wan
-        image: {{ .Values.image.repositor.fbi }}
-        env:
-        - name: APIKEY
-          value: ""
-        ports:
-        - name: function
-          containerPort: 5001
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-      - name: jarjar-binx
-        image: {{ .Values.image.repositor.frauddet }}
-        env:
-        - name: APIKEY
-          value: ""
-        ports:
-        - name: frauddet
-          containerPort: 5002
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-      - name: luke-skywalker
-        image: {{ .Values.image.repositor.function }}
-        ports:
-        - name: function
-          containerPort: 5005
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+     
