@@ -22,7 +22,7 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         env:
         - name: APIKEY
-          value: "{{ .Values.apikey }}"
+          value: {{ .Values.apikey }}
         ports:
         - name: news
           containerPort: 5000
