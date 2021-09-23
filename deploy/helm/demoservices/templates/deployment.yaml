@@ -19,7 +19,8 @@ spec:
     spec:
       containers:
       - name: darth-vader
-        image: {{ .Values.image.repository }} : {{ .Values.image.tag }}
+        image: {{ .Values.image.repository }}
+        tag: {{ .Values.image.tag }}
         env:
         - name: APIKEY
           value: {{ .Values.apikey }}
