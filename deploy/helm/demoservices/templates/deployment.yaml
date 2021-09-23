@@ -21,8 +21,8 @@ spec:
       - name: darth-vader
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         env:
-        - name: {{ .Values.apikey }}
-          value: ""
+        - name: APIKEY
+          value: "{{ .Values.apikey }}"
         ports:
         - name: news
           containerPort: 5000
