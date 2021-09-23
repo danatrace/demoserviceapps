@@ -12,6 +12,7 @@ image:
 
 apikey: ""
   
+servicename: "news"
 
 imagePullSecrets: []
 nameOverride: "news"
