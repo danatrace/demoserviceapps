@@ -22,7 +22,7 @@ spec:
         image: danatrace/news-app:2 
         env:
         - name: APIKEY
-          value: "c863e52655msh5c418f3f5079a2bp10bf8fjsne2b2dcba2739"
+          value: ""
         ports:
         - name: news
           containerPort: 5000
@@ -37,7 +37,7 @@ spec:
         image: danatrace/fbi:1
         env:
         - name: APIKEY
-          value: "c863e52655msh5c418f3f5079a2bp10bf8fjsne2b2dcba2739"
+          value: ""
         ports:
         - name: function
           containerPort: 5001
@@ -52,7 +52,7 @@ spec:
         image: danatrace/frauddet:1
         env:
         - name: APIKEY
-          value: "c863e52655msh5c418f3f5079a2bp10bf8fjsne2b2dcba2739"
+          value: ""
         ports:
         - name: frauddet
           containerPort: 5002
