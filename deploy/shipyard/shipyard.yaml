@@ -27,7 +27,6 @@ spec:
           - name: deployment
             properties:
               deploymentstrategy: "direct"
-          - name: evaluation
           - name: release
     - name: production
       approval_strategy: 
