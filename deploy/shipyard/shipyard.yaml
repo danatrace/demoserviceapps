@@ -29,10 +29,13 @@ spec:
               deploymentstrategy: "direct"
           - name: test
             properties:
-              teststrategy: performance
+              teststrategy: functional
           - name: evaluation
           - name: release
     - name: production
+      approval_strategy: 
+       pass: "manual"
+       warning: "manual"
       sequences:
         - name: delivery
           triggeredOn:

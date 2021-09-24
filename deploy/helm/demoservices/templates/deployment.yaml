@@ -21,7 +21,7 @@ spec:
       - name: {{ .Values.servicename }}
         image: {{ .Values.image}} 
         env:
-        - name: APIKEY
+        - name: apikey
           value: {{ .Values.apikey }}
         ports:
         - name: {{ .Values.servicename }}
