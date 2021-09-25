@@ -1,0 +1,32 @@
+<jmeterTestPlan><hashTree><TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true"><boolProp name="TestPlan.functional_mode">false</boolProp><boolProp name="TestPlan.serialize_threadgroups">false</boolProp><boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp><stringProp name="TestPlan.user_define_classpath"/><elementProp guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true" elementType="Arguments" name="TestPlan.user_defined_variables"><collectionProp name="Arguments.arguments"/></elementProp></TestPlan><hashTree><ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true"><stringProp name="HTTPSampler.concurrentPool">6</stringProp><stringProp name="HTTPSampler.connect_timeout"/><stringProp name="HTTPSampler.contentEncoding"/><stringProp name="HTTPSampler.domain">http://localhost</stringProp><stringProp name="HTTPSampler.implementation">HttpClient4</stringProp><stringProp name="HTTPSampler.path"/><stringProp name="HTTPSampler.port">5000</stringProp><stringProp name="HTTPSampler.protocol">http</stringProp><stringProp name="HTTPSampler.response_timeout">100</stringProp><elementProp guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true" elementType="Arguments" name="HTTPsampler.Arguments"><collectionProp name="Arguments.arguments"/></elementProp></ConfigTestElement><hashTree/><ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true"><boolProp name="ResultCollector.error_logging">false</boolProp><stringProp name="filename"/><objProp name="saveConfig">
+<name>saveConfig</name>
+<value class="SampleSaveConfiguration">
+  <time>true</time>
+  <latency>true</latency>
+  <timestamp>true</timestamp>
+  <success>true</success>
+  <label>true</label>
+  <code>true</code>
+  <message>true</message>
+  <threadName>true</threadName>
+  <dataType>true</dataType>
+  <encoding>false</encoding>
+  <assertions>true</assertions>
+  <subresults>true</subresults>
+  <responseData>false</responseData>
+  <samplerData>false</samplerData>
+  <xml>false</xml>
+  <fieldNames>true</fieldNames>
+  <responseHeaders>false</responseHeaders>
+  <requestHeaders>false</requestHeaders>
+  <responseDataOnError>false</responseDataOnError>
+  <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+  <assertionsResultsToSave>0</assertionsResultsToSave>
+  <bytes>true</bytes>
+  <sentBytes>true</sentBytes>
+  <url>true</url>
+  <threadCounts>true</threadCounts>
+  <idleTime>true</idleTime>
+  <connectTime>true</connectTime>
+</value>
+</objProp></ResultCollector><hashTree/></hashTree></hashTree></jmeterTestPlan>
