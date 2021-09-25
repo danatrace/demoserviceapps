@@ -6,18 +6,22 @@ spec:
   stages:
     - name: "staging"
       sequences:
-        - name: "delivery"
-          tasks:
-            - name: "deployment"
-              properties:
-                deploymentstrategy: "direct"
-            - name: "release"
-        - name: "delivery-direct"
-          tasks:
-            - name: "deployment"
-              properties:
-                deploymentstrategy: "direct"
-            - name: "release"
+            - name: "delivery"
+              tasks:
+                - name: "deployment"
+                  properties:
+                    deploymentstrategy: "direct"
+                - name: "test"
+                  properties:
+                    teststrategy: "functional"
+                - name: "evaluation"
+                - name: "release"
+            - name: "delivery-direct"
+              tasks:
+                - name: "deployment"
+                  properties:
+                    deploymentstrategy: "direct"
+                - name: "release"
     - name: hardening
       sequences:
         - name: delivery
