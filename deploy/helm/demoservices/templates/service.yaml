@@ -5,9 +5,10 @@ metadata:
   labels:
     {{- include "demoservices.labels" . | nindent 4 }}
 spec:
+  type: ClusterIP
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: 5000
+      targetPort: 8080
       protocol: TCP
       name: http
   selector:

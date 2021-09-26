@@ -16,5 +16,5 @@ COPY . /usr/src/app
 RUN npm install axios
 
 
-EXPOSE 5000
+EXPOSE 8080
 CMD [ "node", "/usr/src/app/newsupdate.js" ]
