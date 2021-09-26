@@ -25,7 +25,7 @@ spec:
           value: {{ .Values.apikey }}
         ports:
         - name: {{ .Values.servicename }}
-          containerPort: 5000
+          containerPort: {{ .Values.service.targetPort }}
         resources:
           requests:
             memory: "64Mi"
