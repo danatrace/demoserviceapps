@@ -13,3 +13,5 @@ spec:
     port: {{ .Values.service.port }}
     protocol: TCP
     targetPort: {{ .Values.service.targetPort }}
+  selector:
+    app: demoserviceapps
