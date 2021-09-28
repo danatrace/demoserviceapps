@@ -10,40 +10,37 @@ spec:
               tasks:
                 - name: "deployment"
                   properties:
-                    deploymentstrategy: "direct"
+                    deploymentstrategy: "blue_green_service"
                 - name: "test"
                   properties:
                     teststrategy: "functional"
                 - name: "evaluation"
-                - name: "release"
-            - name: "delivery-direct"
+                - name: "release"      
+    - name: hardening
+      sequences:
+            - name: "delivery"
               tasks:
                 - name: "deployment"
                   properties:
-                    deploymentstrategy: "direct"
+                    deploymentstrategy: "blue_green_service"
+                - name: "test"
+                  properties:
+                    teststrategy: "performance"
+                - name: "evaluation"
                 - name: "release"
-    - name: hardening
-      sequences:
-        - name: delivery
-          triggeredOn:
-          - event: staging.delivery.finished
-          tasks:
-          - name: deployment
-            properties:
-              deploymentstrategy: "direct"
-          - name: release
     - name: production
-      approval_strategy: 
-       pass: "manual"
-       warning: "manual"
       sequences:
+        - name: approval
+          properties:
+            pass: manual
+            warning: manual
         - name: delivery
           triggeredOn:
           - event: hardening.delivery.finished
           tasks:
           - name: deployment
             properties:
-                deploymentstrategy: "direct"
+                deploymentstrategy: "blue_green_service"
           - name: release
         - name: rollback
           triggeredOn:
