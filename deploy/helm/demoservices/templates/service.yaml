@@ -4,8 +4,8 @@ kind: Service
 metadata:
   name: {{ .Values.servicename }}
   labels:
-    name: {{ .Values.servicename }}
-    app: {{ .Values.servicename }}
+    name: demoserviceapps
+    app: demoserviceapps
 spec:
   type: ClusterIP
   ports:
