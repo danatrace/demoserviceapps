@@ -85,5 +85,4 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-demoservices:
-      selectorLabels:"app:demoservices"
+
