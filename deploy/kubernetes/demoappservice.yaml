@@ -23,7 +23,7 @@ spec:
           value: ""
         ports:
         - name: news
-          containerPort: 5000
+          containerPort: 8080
         resources:
           requests:
             memory: "64Mi"

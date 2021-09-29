@@ -24,7 +24,7 @@ spec:
       paths:
       - backend:
           serviceName: news
-          servicePort: 5000
+          servicePort: 8080
         path: /
   tls:
   - hosts:
