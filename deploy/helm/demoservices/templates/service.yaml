@@ -2,9 +2,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "news.fullname" . }}
+  name: {{ .Values.servicename }}
   labels:
-    {{- include "news.labels" . | nindent 4 }}
+    {{ .Values.lables }}
 spec:
   type: ClusterIP
   ports:
@@ -12,5 +12,3 @@ spec:
       targetPort: 8080
       protocol: TCP
       name: http
-  selector:
-    {{- include "news.selectorLabels" . | nindent 4 }}
