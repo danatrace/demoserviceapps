@@ -47,7 +47,7 @@ var server = http.createServer(function (req, res) {
 var axios = require("axios").default;
 
 
-var apikey  = process.env.API_KEY;
+var apikey  = process.env.apikey;
 
 var options = {
 method: 'GET',
