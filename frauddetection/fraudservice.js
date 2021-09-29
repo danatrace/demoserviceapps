@@ -30,7 +30,7 @@ var server = http.createServer(function (req, res) {
 
 
 var axios = require("axios").default;
-var apikey  = process.env.API_KEY;
+var apikey  = process.env.api;
             
 var options = {
     method: 'GET',
@@ -45,6 +45,6 @@ var options = {
 
 
 
-server.listen(5002);
+server.listen(8080);
 
 console.log('Node.js web server at port 5000 is running..')
