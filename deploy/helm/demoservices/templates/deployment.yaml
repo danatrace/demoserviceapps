@@ -15,8 +15,8 @@ spec:
       labels:
         name: {{ .Values.servicename }}
         app: {{ .Values.servicename }}
-        app.kubernetes.io/name: {{ .Values.SERVICE_PLACEHOLDER_C.service.name }}
-        app.kubernetes.io/instance: "{{ .Values.SERVICE_PLACEHOLDER_C.service.name }}-{{ .Values.SERVICE_PLACEHOLDER_C.deployment.name }}"
+        app.kubernetes.io/name: {{ .Values.servicename }}
+        app.kubernetes.io/instance: "{{ .Values.servicename }}"
         app.kubernetes.io/component: api
         app.kubernetes.io/part-of: "demoserviceapps"
         app.kubernetes.io/managed-by: Keptn
