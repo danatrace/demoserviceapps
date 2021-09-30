@@ -31,6 +31,7 @@ spec:
           - name: deployment
             properties:
               deploymentstrategy: "direct"
+          - name: "Workflow"
           - name: "test"
             properties:
               teststrategy: "performance"
