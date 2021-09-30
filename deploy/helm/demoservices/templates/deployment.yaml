@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.servicename }}
-        image: {{ .Values.image}} 
+        image: {{ .Values.image }} 
         env:
         - name: apikey
           value: {{ .Values.apikey }}
