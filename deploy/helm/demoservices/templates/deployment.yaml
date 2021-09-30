@@ -15,10 +15,10 @@ spec:
       labels:
         name: {{ .Values.servicename }}
         app: {{ .Values.servicename }}
-        app.kubernetes.io/name: {{ .Values.keptn.service }}
-        app.kubernetes.io/instance: "{{ .Values.keptn.service }}-{{ .Values.keptn.deployment }}"
+        app.kubernetes.io/name: {{ .Values.SERVICE_PLACEHOLDER_C.service.name }}
+        app.kubernetes.io/instance: "{{ .Values.SERVICE_PLACEHOLDER_C.service.name }}-{{ .Values.SERVICE_PLACEHOLDER_C.deployment.name }}"
         app.kubernetes.io/component: api
-        app.kubernetes.io/part-of: "{{ .Values.keptn.project }}"
+        app.kubernetes.io/part-of: "demoserviceapps"
         app.kubernetes.io/managed-by: Keptn
         app.kubernetes.io/version: {{ (split ":" .Values.image)._1 | default "latest" }}
     spec:
@@ -32,26 +32,15 @@ spec:
         - name: {{ .Values.servicename }}
           containerPort: {{ .Values.service.targetPort }}
         env:
-        - name: DT_CUSTOM_PROP
-          value: "keptn_project={{ .Values.keptn.project }} keptn_service={{ .Values.keptn.service }} keptn_stage={{ .Values.keptn.stage }} keptn_deployment={{ .Values.keptn.deployment }}"
-        - name: POD_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: "metadata.name"
-        - name: DEPLOYMENT_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: "metadata.labels['deployment']"
-        - name: CONTAINER_IMAGE
-          value: "{{ .Values.image }}"
+        ...
         - name: KEPTN_PROJECT
-          value: "{{ .Values.keptn.project }}"
+          value: "{{ .Chart.Name }}"
         - name: KEPTN_STAGE
-          value: "{{ .Values.keptn.stage }}"
+          valueFrom:
+            fieldRef:
+              fieldPath: "metadata.namespace"
         - name: KEPTN_SERVICE
-          value: "{{ .Values.keptn.service }}"
-        - name: KEPTN_DEPLOYMENT
-          value: "{{ .Values.keptn.deployment }}"
+          value: "{{ .Values.SERVICE_PLACEHOLDER_C.service.name }}"
         resources:
           requests:
             memory: "64Mi"
