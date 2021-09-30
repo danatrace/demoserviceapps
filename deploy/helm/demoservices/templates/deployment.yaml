@@ -33,7 +33,8 @@ spec:
           containerPort: {{ .Values.service.targetPort }}
         env:
         - name: DT_CUSTOM_PROP
-          value: "keptn_project={{ .Values.keptn.project }} keptn_service={{ .Values.keptn.service }} keptn_stage={{ .Values.keptn.stage }} keptn_deployment={{ .Values.kep>        - name: POD_NAME
+          value: "keptn_project={{ .Values.keptn.project }} keptn_service={{ .Values.keptn.service }} keptn_stage={{ .Values.keptn.stage }} keptn_deployment={{ .Values.keptn.deployment }}"
+        - name: POD_NAME
           valueFrom:
             fieldRef:
               fieldPath: "metadata.name"
