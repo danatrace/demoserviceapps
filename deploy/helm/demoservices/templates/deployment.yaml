@@ -40,7 +40,7 @@ spec:
             fieldRef:
               fieldPath: "metadata.namespace"
         - name: KEPTN_SERVICE
-          value: "{{ .Values.SERVICE_PLACEHOLDER_C.service.name }}"
+          value: "{{ .Values.service.targetPort }}"
         resources:
           requests:
             memory: "64Mi"
