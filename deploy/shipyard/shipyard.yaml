@@ -32,6 +32,17 @@ spec:
             properties:
               deploymentstrategy: "direct"
           - name: "Workflow"
+          - name: "njinn"
+            image: "theithollow/hollowapp-blog:curl"
+            args:
+            - /bin/sh
+            - -c
+            - executionsid=$(curl -d '{"key1":"value1", "key2":"value2"}' -H "Accept: application/json" -H "Authorization: Basic ZGFuaWVsLmJyYWFmQGdtYWlsLmNvbTpLdXFEcU9xbzNZU0dnU3ExUUdFRUNZSENp" -H "content-Type: application/json" -X POST https://dynatrace.njinn.io/api/v1/workflows/31/run | jq -r '.id');
+              while [["$state" == "running"]];
+              do;
+                state=$(curl -H "Accept: application/json" -H "Authorization: Basic ZGFuaWVsLmJyYWFmQGdtYWlsLmNvbTpLdXFEcU9xbzNZU0dnU3ExUUdFRUNZSENp" -H "content-Type: application/json" "https://dynatrace.njinn.io/api/v1/executions/$executionsid" | jq -r '.state');
+                echo  $state;
+              done;
           - name: "test"
             properties:
               teststrategy: "performance"
