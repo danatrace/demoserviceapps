@@ -20,7 +20,8 @@ spec:
         app.kubernetes.io/component: api
         app.kubernetes.io/part-of: demoserviceapps
         app.kubernetes.io/managed-by: Keptn
-        app.kubernetes.io/version: {{ .Values.build }}
+        app.kubernetes.io/build_version: {{ .Values.build }}
+        app.kubernetes.io/version: {{ .Values.release }}
     spec:
       containers:
       - name: {{ .Values.servicename }}
