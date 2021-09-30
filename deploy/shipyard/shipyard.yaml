@@ -31,7 +31,7 @@ spec:
           - name: deployment
             properties:
               deploymentstrategy: "direct"
-          - name: "Workflow"
+          - name: "njinn"
           - name: "test"
             properties:
               teststrategy: "performance"
