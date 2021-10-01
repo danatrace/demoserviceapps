@@ -4,7 +4,7 @@ metadata:
   name: "shipyard-demoserviceapps"
 spec:
   stages:
-    - name: "staging"
+    - name: "dev"
       sequences:
             - name: "delivery"
               tasks:
@@ -22,6 +22,20 @@ spec:
                   properties:
                     deploymentstrategy: "direct"
                 - name: "release"
+    - name: "staging"
+      sequences:
+            - name: "delivery"
+              triggeredOn:
+              - event: dev.delivery.finished
+              tasks:
+                - name: "deployment"
+                  properties:
+                    deploymentstrategy: "blue_green_service"
+                - name: "test"
+                  properties:
+                    teststrategy: "functional"
+                - name: "evaluation"
+                - name: "release"
     - name: hardening
       sequences:
         - name: delivery
@@ -30,7 +44,7 @@ spec:
           tasks:
           - name: deployment
             properties:
-              deploymentstrategy: "direct"
+              deploymentstrategy: "blue_green_service"
           - name: "test"
             properties:
               teststrategy: "performance"
@@ -44,7 +58,10 @@ spec:
           tasks:
           - name: deployment
             properties:
-                deploymentstrategy: "direct"
+                deploymentstrategy: "blue_green_service"
+                approval_strategy: 
+                   pass: "manual"
+                   warning: "manual"
           - name: release
         - name: rollback
           triggeredOn:
