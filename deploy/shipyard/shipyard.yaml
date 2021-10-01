@@ -31,7 +31,6 @@ spec:
           - name: deployment
             properties:
               deploymentstrategy: "direct"
-          - name: "njinn"
           - name: "test"
             properties:
               teststrategy: "performance"
