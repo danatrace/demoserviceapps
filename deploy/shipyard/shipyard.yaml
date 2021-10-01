@@ -56,12 +56,13 @@ spec:
           triggeredOn:
           - event: hardening.delivery.finished
           tasks:
+          - name: approval
+            properties:
+              pass: manual
+              warning: manual
           - name: deployment
             properties:
                 deploymentstrategy: "blue_green_service"
-                approval_strategy: 
-                   pass: "manual"
-                   warning: "manual"
           - name: release
         - name: rollback
           triggeredOn:
