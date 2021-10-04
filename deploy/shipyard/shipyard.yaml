@@ -21,6 +21,10 @@ spec:
                 - name: "deployment"
                   properties:
                     deploymentstrategy: "direct"
+                - name: "test"
+                  properties:
+                    teststrategy: "functional"
+                - name: "evaluation"
                 - name: "release"
     - name: "staging"
       sequences:
