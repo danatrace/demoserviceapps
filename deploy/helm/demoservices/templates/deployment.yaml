@@ -22,7 +22,6 @@ spec:
         app.kubernetes.io/managed-by: Keptn
         app.kubernetes.io/build: {{ .Values.build }}
         app.kubernetes.io/version: {{ .Values.release }}
-        app.kubernetes.io/jiraissue: {{ .Values.jiraissue }}
     spec:
       containers:
       - name: {{ .Values.servicename }}
