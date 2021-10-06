@@ -44,7 +44,7 @@ spec:
       sequences:
         - name: delivery
           triggeredOn:
-          - event: hardening.delivery.finished
+          - event: staging.delivery.finished
           tasks:
           - name: approval
             properties:
