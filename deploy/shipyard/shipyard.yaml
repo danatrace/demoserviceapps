@@ -29,6 +29,8 @@ spec:
     - name: "staging"
       sequences:
             - name: "delivery"
+              triggeredOn:
+               - event: staging.delivery.triggered
               tasks:
                 - name: "deployment"
                   properties:
@@ -40,7 +42,9 @@ spec:
                 - name: "release"
     - name: production
       sequences:
-        - name: delivery
+        - name: "delivery"
+          triggeredOn:
+            - event: production.delivery.triggered
           tasks:
           - name: approval
             properties:
