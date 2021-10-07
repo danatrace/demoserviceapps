@@ -29,8 +29,6 @@ spec:
     - name: "staging"
       sequences:
             - name: "delivery"
-              triggeredOn:
-              - event: dev.delivery.finished
               tasks:
                 - name: "deployment"
                   properties:
