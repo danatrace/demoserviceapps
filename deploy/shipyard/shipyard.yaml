@@ -41,8 +41,6 @@ spec:
     - name: production
       sequences:
         - name: delivery
-          triggeredOn:
-          - event: staging.delivery.finished
           tasks:
           - name: approval
             properties:
