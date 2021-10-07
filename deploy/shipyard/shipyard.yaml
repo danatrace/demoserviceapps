@@ -30,7 +30,7 @@ spec:
       sequences:
             - name: "delivery"
               triggeredOn:
-               - event: dev.delivery
+               - event: dev.delivery.finished
               tasks:
                 - name: "deployment"
                   properties:
@@ -40,11 +40,20 @@ spec:
                     teststrategy: "functional"
                 - name: "evaluation"
                 - name: "release"
+            - name: rollback
+              triggeredOn:
+                  - event: staging.evaluation.finished
+                    selector:
+                      match:
+                        result: failed
+              tasks:
+                  - name: rollback
+
     - name: production
       sequences:
         - name: "delivery"
           triggeredOn:
-            - event: staging.delivery
+            - event: staging.delivery.finished
           tasks:
           - name: approval
             properties:
