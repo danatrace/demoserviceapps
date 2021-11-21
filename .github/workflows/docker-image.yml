@@ -12,14 +12,19 @@ jobs:
 
     steps:
       - name: get-changed-folders
-        uses: Stockopedia/action-get-changed-files@v1.2
+      - uses: Stockopedia/action-get-changed-files@v1
+        id: get_changed
         with:
-             github-token: ${{ github.token }}
-             foldersOnly: true
-             format: csv
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          ignore: "**/+(.github)"
+          foldersOnly: false 
+          format: csv
       - name: Echo changed files
-        run: echo ${{ steps.get-changed-folders.outputs.changed }}
+        run: echo ${{ steps.get_changed.outputs.changed }}
         
       - uses: actions/checkout@v2
       - name: Build the Docker image
         run: docker build . --file fbi/Dockerfile --tag my-image-name:$(date +%s)
+
+
+
