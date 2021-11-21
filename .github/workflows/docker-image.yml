@@ -35,3 +35,9 @@ jobs:
         uses: fjogeleit/http-request-action@v1.8.1
         with:
             url: http://localhost
+      - if: steps.get_changed.outputs.changed == 'fbi' || steps.get_changed.outputs.changed == 'frauddetection'
+        name: Docker stop
+        run:  docker stop ${{ steps.get_changed.outputs.changed }}:${{ GITHUB.SHA }}
+      - if: steps.get_changed.outputs.changed == 'fbi' || steps.get_changed.outputs.changed == 'frauddetection'
+        name: Docker Remove
+        run:  docker rm ${{ steps.get_changed.outputs.changed }}:${{ GITHUB.SHA }}
