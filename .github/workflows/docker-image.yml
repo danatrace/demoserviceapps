@@ -14,7 +14,7 @@ jobs:
       - name: get-changed-folders
         uses: Stockopedia/action-get-changed-files@v1.2
         with:
-             github-token: GITHUB_TOKEN
+             github-token: ${{ github.token }}
              foldersOnly: true
         
       - uses: actions/checkout@v2
