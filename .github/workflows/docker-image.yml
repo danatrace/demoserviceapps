@@ -34,7 +34,7 @@ jobs:
         name: run test
         uses: fjogeleit/http-request-action@v1.8.1
         with:
-            url: http://${{ steps.get-public-ip.outputs.ipv4 }}:5000/data
+            url: http://${{ steps.get public ip.outputs.ipv4 }}:5000/data
             method: get
       - if: steps.get_changed.outputs.changed == 'fbi' || steps.get_changed.outputs.changed == 'frauddetection'
         name: Docker stop
