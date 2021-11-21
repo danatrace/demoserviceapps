@@ -3,7 +3,7 @@ name: Docker Image CI
 on:
   push:
     branches: 
-    - main/demoserviceapps/fbi
+    - main
 jobs:
 
   build:
@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: Stockopedia/action-get-changed-files@v1.2
+      - name: get-changed-folders
       - uses: actions/checkout@v2
       - name: Build the Docker image
         run: docker build . --file fbi/Dockerfile --tag my-image-name:$(date +%s)
