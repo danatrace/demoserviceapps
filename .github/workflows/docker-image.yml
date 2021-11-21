@@ -26,7 +26,7 @@ jobs:
         run:  docker build . --file ${{ steps.get_changed.outputs.changed }}/Dockerfile --tag ${{ steps.get_changed.outputs.changed }}:${{ GITHUB.SHA }}
       - if: steps.get_changed.outputs.changed == 'fbi' || steps.get_changed.outputs.changed == 'frauddetection'
         name: run the Docker image
-        run:  docker run --name ${{ steps.get_changed.outputs.changed }} -d -p 80:8080 ${{ steps.get_changed.outputs.changed }}:${{ GITHUB.SHA }}
+        run:  docker run --name ${{ steps.get_changed.outputs.changed }} -d -p 5000:8080 ${{ steps.get_changed.outputs.changed }}:${{ GITHUB.SHA }}
       - if: steps.get_changed.outputs.changed == 'fbi' || steps.get_changed.outputs.changed == 'frauddetection'
         name: Public IP
         uses: haythem/public-ip@v1.2
@@ -34,7 +34,7 @@ jobs:
         name: smoke test
         uses: fjogeleit/http-request-action@v1.8.1
         with:
-            url: http://localhost/
+            url: http://localhost:5000/data
             method: get
       - if: steps.get_changed.outputs.changed == 'fbi' || steps.get_changed.outputs.changed == 'frauddetection'
         name: Docker stop
