@@ -24,6 +24,9 @@ jobs:
       - if: steps.get_changed.outputs.changed == 'fbi' || steps.get_changed.outputs.changed == 'frauddetection'
         name: Build the Docker image
         run:  docker build . --file ${{ steps.get_changed.outputs.changed }}/Dockerfile --tag my-image-name:$(date +%s)
+      - if: steps.get_changed.outputs.changed == 'fbi' || steps.get_changed.outputs.changed == 'frauddetection'
+      - name: run the Docker image
+        run:  docker run my-image-name:$(date +%s)
       - name: Public IP
         uses: haythem/public-ip@v1.2
         
