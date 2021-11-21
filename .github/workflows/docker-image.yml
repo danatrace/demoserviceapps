@@ -13,9 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: File Changes
-        # You may pin to the exact commit or the version.
-        # uses: AceFire6/file_changes@2bcba22721fa3f93103ede9bc03add5c4eecb427
       - uses: AceFire6/file_changes@v0.1.0
       - uses: actions/checkout@v2
       - name: Build the Docker image
