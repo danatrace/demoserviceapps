@@ -6,7 +6,7 @@ on:
     - main
 jobs:
 
-  build:
+  build-run-test:
 
     runs-on: ubuntu-latest
 
@@ -34,7 +34,7 @@ jobs:
         name: smoke test
         uses: fjogeleit/http-request-action@v1.8.1
         with:
-            url: http://localhost:5000/data
+            url: http://${{ steps.ip.outputs.ipv4 }}:5000/data
             method: get
       - if: steps.get_changed.outputs.changed == 'fbi' || steps.get_changed.outputs.changed == 'frauddetection'
         name: Docker stop
