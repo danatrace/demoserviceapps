@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: get-changed-folders
       - uses: Stockopedia/action-get-changed-files@v1
         id: get_changed
         with:
@@ -21,7 +20,6 @@ jobs:
           format: csv
       - name: Echo changed files
         run: echo ${{ steps.get_changed.outputs.changed }}
-        
       - uses: actions/checkout@v2
       - name: Build the Docker image
         run: docker build . --file fbi/Dockerfile --tag my-image-name:$(date +%s)
