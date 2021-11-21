@@ -16,6 +16,9 @@ jobs:
         with:
              github-token: ${{ github.token }}
              foldersOnly: true
+             format: csv
+      - name: Echo changed files
+        run: echo ${{ steps.get_changed.outputs.changed }}
         
       - uses: actions/checkout@v2
       - name: Build the Docker image
