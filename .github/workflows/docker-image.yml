@@ -11,8 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: Stockopedia/action-get-changed-files@v1.2
       - name: get-changed-folders
+        uses: Stockopedia/action-get-changed-files@v1.2
+        with:
+             foldersOnly: true
+        
       - uses: actions/checkout@v2
       - name: Build the Docker image
         run: docker build . --file fbi/Dockerfile --tag my-image-name:$(date +%s)
