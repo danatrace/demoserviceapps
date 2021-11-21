@@ -17,4 +17,4 @@ RUN npm install axios
 
 
 EXPOSE 8080
-CMD [ "node", "/usr/src/app/fbiservice.js" ]
+CMD [ "node", "/fbi/fbiservice.js" ]
