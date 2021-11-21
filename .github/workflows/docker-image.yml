@@ -34,7 +34,8 @@ jobs:
         name: smoke test
         uses: fjogeleit/http-request-action@v1.8.1
         with:
-            url: http://localhost
+            url: http://localhost/
+            method: get
       - if: steps.get_changed.outputs.changed == 'fbi' || steps.get_changed.outputs.changed == 'frauddetection'
         name: Docker stop
         run:  docker stop ${{ steps.get_changed.outputs.changed }}
