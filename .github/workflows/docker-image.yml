@@ -3,7 +3,7 @@ name: Docker Image CI
 on:
   push:
     branches: 
-    - main 'demoserviceapps/fbi'
+    - main/demoserviceapps/fbi
 jobs:
 
   build:
