@@ -1,0 +1,18 @@
+- name: File Changes
+  # You may pin to the exact commit or the version.
+  # uses: AceFire6/file_changes@2bcba22721fa3f93103ede9bc03add5c4eecb427
+  uses: AceFire6/file_changes@v0.1.0
+  with:
+    # The name of the branch being compared to. Uses $GITHUB_BASE_REF if not set
+    base-branch: # optional, default is ${{ github.base_ref }}
+    # The command to run to get the file changes can contain {globs} and {branchName} to specify replacements. {globs} uses glob-template to prepare the globs before replacement.
+    command: # optional, default is git diff --name-status --no-renames {branchName} {globs}
+    # How to format the globs received
+    glob-template: # optional, default is '{glob}'
+    # A map with keys ADDED, CHANGED, and DELETED as keys and a pattern object ({"pattern": "<pattern>"}) as a value. Any defined keys will be kept, others discarded. Special characters should be escaped. The matching is done by checking if the file change starts with the pattern.
+    filter-patterns: # optional, default is ADDED: {"pattern": "A\t"}
+CHANGED: {"pattern": "M\t"}
+DELETED: {"pattern": "D\t"}
+
+    # A multi-line map of changes to find. eg. python_files: {"globs": "*.py", "separateDeleted": false} requirements: {"globs": "requirements/*.txt"} py_and_requirements: {"globs": ["requirements/*.txt", "*.py"]} The final boolean determines if we separate out floats
+    change-map: 
