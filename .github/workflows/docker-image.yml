@@ -14,6 +14,8 @@ jobs:
 
     steps:
       - uses: AceFire6/file_changes@v0.1.0
+      - name: List Results
+        run: echo $CHANGED
       - uses: actions/checkout@v2
       - name: Build the Docker image
         run: docker build . --file fbi/Dockerfile --tag my-image-name:$(date +%s)
