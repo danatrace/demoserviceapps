@@ -22,8 +22,7 @@ jobs:
         run: echo ${{ steps.get_changed.outputs.changed }}
       - uses: actions/checkout@v2
       - name: Build the Docker image
-        run: if [ "${{ steps.get_changed.outputs.changed }}" == "fbi" ] || [ "${{ steps.get_changed.outputs.changed }}" == "frauddetection" ] || [ "${{ steps.get_changed.outputs.changed }}" == "news" ] || [ "${{ steps.get_changed.outputs.changed }}" == "function" ]; then docker build . --file ${{ steps.get_changed.outputs.changed }}/Dockerfile --tag my-image-name:$(date +%s); else echo "no files in containers were changed"; fi
-      - name: run container
-        run: docker run my-image-name:$(date +%s)
+        run: if [ "${{ steps.get_changed.outputs.changed }}" == "fbi" ] || [ "${{ steps.get_changed.outputs.changed }}" == "frauddetection" ] || [ "${{ steps.get_changed.outputs.changed }}" == "news" ] || [ "${{ steps.get_changed.outputs.changed }}" == "function" ]; then docker build . --file ${{ steps.get_changed.outputs.changed }}/Dockerfile --tag my-image-name:$(date +%s) docker run my-image-name:$(date +%s); else echo "no files in containers were changed"; fi
+
 
 
